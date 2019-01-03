@@ -1,9 +1,31 @@
 package com.alan.springboot.domain;
 
-public class User {
+import javax.persistence.*;
+@Entity
+@Table(name = "sys_users")
+public class User extends BaseEntity{
 
+    @Column(name = "CODE")
+    private  String code;
+    @Column(name = "USERNAME")
     private  String userName;
+    @Column(name = "PASSWORD")
     private  String passWord;
+    @Column(name = "PHONENUM")
+    private  String phoneNum;
+    @Column(name = "EMAIL")
+    private  String email;
+
+    public User() {
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     public String getUserName() {
         return userName;
@@ -19,5 +41,21 @@ public class User {
 
     public void setPassWord(String passWord) {
         this.passWord = passWord;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

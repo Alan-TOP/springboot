@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class HelloWorldController {
 
@@ -18,7 +20,7 @@ public class HelloWorldController {
         return "hello world中国";
     }
 
-    @RequestMapping("/getUser")
+    @RequestMapping(value="/getUser",produces = "application/json;charset=UTF-8")
     public User getUser() {
         User user=new User();
         user.setUserName("小明");
@@ -26,7 +28,7 @@ public class HelloWorldController {
         return user;
     }
     @RequestMapping("/getUsers")
-    public User getUsers() {
-        return userService.getUser();
+    public List<User> getUsers() {
+        return userService.getAllList();
     }
 }
