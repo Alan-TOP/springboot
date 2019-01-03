@@ -9,7 +9,7 @@ public abstract class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "ID")
-    private String id;
+    private Integer id;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "CREATE_TIME",columnDefinition="timestamp default CURRENT_TIMESTAMP")
@@ -21,11 +21,11 @@ public abstract class BaseEntity implements Serializable {
     public BaseEntity() {
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

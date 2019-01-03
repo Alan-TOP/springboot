@@ -2,9 +2,11 @@ package com.alan.springboot.service;
 
 import com.alan.springboot.dao.UserDao;
 import com.alan.springboot.domain.User;
+import com.alan.springboot.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -12,6 +14,16 @@ public class UserService {
 
     @Autowired
     private UserDao userDao;
+
+    public User addUser(User user){
+        Date date = new Date();
+
+        if (user.getId()==null){
+                user.setCreateTime(date);
+            }
+            user.setUpdateTime(date);
+        return  userDao.save(user);
+    }
 
     public User getUser(){
         User user=new User();

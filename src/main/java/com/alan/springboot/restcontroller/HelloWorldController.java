@@ -27,6 +27,18 @@ public class HelloWorldController {
         user.setPassWord("xxxx");
         return user;
     }
+    @RequestMapping(value = "addUser")
+    public User addUser(){
+        User user=new User();
+        user.setUserName("Alan");
+        user.setPassWord("aaaaaa");
+        user.setCode("alan");
+        user.setPhoneNum("11111");
+        user.setEmail("aaaaa@163.com");
+        return userService.addUser(user);
+
+    }
+
     @RequestMapping("/getUsers")
     public List<User> getUsers() {
         return userService.getAllList();
