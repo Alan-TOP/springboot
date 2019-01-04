@@ -16,12 +16,10 @@ public class UserService {
     private UserDao userDao;
 
     public User addUser(User user){
-        Date date = new Date();
-
         if (user.getId()==null){
-                user.setCreateTime(date);
+                user.setCreateTime(DateUtil.getNowDate());
             }
-            user.setUpdateTime(date);
+            user.setUpdateTime(DateUtil.getNowDate());
         return  userDao.save(user);
     }
 
