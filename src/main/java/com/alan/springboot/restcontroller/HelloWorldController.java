@@ -35,7 +35,7 @@ public class HelloWorldController {
         user.setCode("alan");
         user.setPhoneNum("11111");
         user.setEmail("aaaaa@163.com");
-        return userService.addUser(user);
+        return userService.saveUser(user);
 
     }
 

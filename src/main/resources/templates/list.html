@@ -9,10 +9,10 @@
 </head>
 <body>
 <div th:replace="header :: header">...</div>
-<h3 th:text="${userModel.title}">Welcome to springboot</h3>
+<h3 th:text="${title}">Welcome to springboot</h3>
 <div>
     <!--<a href="/users/form.html" th:href="@{/users/form}">创建用户</a>-->
-    <a th:href="@{/users/form}" >创建用户</a>
+    <a th:href="@{/form}" >创建用户</a>
 </div>
 <table border="1">
     <thead>
@@ -20,16 +20,22 @@
         <td>ID</td>
         <td>code</td>
         <td>Name</td>
+        <td>phoneNum</td>
+        <td>email</td>
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${userModel.userList.size()} eq 0">
+    <tr th:if="${userList.size()} eq 0">
         <td colspan="3">没有用户信息！！</td>
     </tr>
-    <tr th:each="user : ${userModel.userList}">
-        <td th:text="${user.id}">1</td>
-        <td th:text="${user.code}">11</td>
-
+    <tr th:each="user : ${userList}">
+        <td>
+            <a href="view.html" th:href="@{'/view/?id=' + ${user.id}}" th:text="${user.id}"></a>
+        </td>
+        <td th:text="${user.code}"></td>
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.phoneNum}"></td>
+        <td th:text="${user.email}"></td>
     </tr>
     </tbody>
 

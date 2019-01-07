@@ -5,21 +5,28 @@
     <title>welcome</title>
 </head>
 <body>
-<div th:replace="fragments/header :: header">...</div>
-<h3 th:text="${userModel.title}">Welcome to springboot</h3>
-<form action="/users" th:action="@{/users}" method="post" th:object="${userModel.user}" >
-    <input type="hidden" name="id" th:value="${userModel.user.id}">
-    名称：<br>
-    <input type="text" name="name" th:value="*{name}">
+<div th:replace="header :: header">...</div>
+<h3 th:text="${title}">Welcome to springboot</h3>
+<form action="/users" th:action="@{/saveUser}" method="post" th:object="${user}" >
+    <input type="hidden" name="id" th:value="${user.id}">
+    code：<br>
+    <input type="text" name="code" th:value="*{code}">
     <br>
-    年龄：<br>
-    <input type="text" name="age" th:value="*{age}">
+    名称：<br>
+    <input type="text" name="userName" th:value="*{userName}">
+    <br>
+    电话：<br>
+    <input type="text" name="phoneNum" th:value="*{phoneNum}">
+    <br>
+    email：<br>
+    <input type="text" name="email" th:value="*{email}">
+    <br>
     <input type="submit" value="提交">
 </form>
 
 
 
-<div th:replace="~{fragments/footer :: footer}">...</div>
+<div th:replace="~{footer :: footer}">...</div>
 
 </body>
 </html>

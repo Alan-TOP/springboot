@@ -15,7 +15,7 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public User addUser(User user){
+    public User saveUser(User user){
         if (user.getId()==null){
                 user.setCreateTime(DateUtil.getNowDate());
             }
@@ -23,6 +23,9 @@ public class UserService {
         return  userDao.save(user);
     }
 
+    public User getUser(int id){
+        return  userDao.getOne(id);
+    }
     public User getUser(){
         User user=new User();
         user.setUserName("小明service");

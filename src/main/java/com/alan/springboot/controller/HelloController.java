@@ -1,11 +1,16 @@
 package com.alan.springboot.controller;
 
+import com.alan.springboot.domain.User;
 import com.alan.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.websocket.server.PathParam;
 
 @Controller
 public class HelloController {
@@ -15,11 +20,64 @@ public class HelloController {
      * 查询所用用户
      * @return
      */
-    @GetMapping(value = "/userList")
-    public ModelAndView list(Model model) {
-
+    @GetMapping("userList")
+    public String list(Model model) {
         model.addAttribute("userList", userService.getAllList());
         model.addAttribute("title", "用户管理a");
-        return new ModelAndView("list", "userModel", model);
+        return "list";
+    }
+    /**
+     * 获取 form 表单页面
+     * @return
+     */
+    @GetMapping("/form")
+    public String createForm(Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("title", "创建用户");
+        return "form";
+    }
+
+    /**
+     * 新建用户
+     * @param user
+     * @return
+     */
+    @PostMapping("saveUser")
+    public String create(User user,Model model) {
+        user = userService.saveUser(user);
+        model.addAttribute("user",user);
+        return "form";
+    }
+    /**
+     * 根据id查询用户
+     * @return
+     */
+    @GetMapping(value = "view")
+    public String view(@PathParam("id") int id, Model model) {
+        User user = userService.getUser(id);
+        model.addAttribute("user", user);
+        model.addAttribute("title", "查看用户");
+        return "view";
+    }
+
+
+
+
+
+
+    @GetMapping(value = "/listTest")
+    public String listTest(Model model) {
+        model.addAttribute("userList", userService.getAllList());
+        model.addAttribute("title", "用户管理a");
+        return "list";
+    }
+
+    @GetMapping(value = "/userListTest")
+    public ModelAndView listUserTest(Model model) {
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("list");
+        modelAndView.addObject("userList",userService.getAllList());
+        modelAndView.addObject("title","用户管理");
+        return modelAndView;
     }
 }
