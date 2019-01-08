@@ -1,3 +1,11 @@
+#系统变量设置
+com:
+  alan:
+    title: alan
+    description: springboot
+    age: 18
+
+
 server:
   port: 8081
   servlet:
@@ -28,3 +36,5 @@ spring:
         content:
           enabled: true
           paths: /**
+logging:
+  file: springboot.log

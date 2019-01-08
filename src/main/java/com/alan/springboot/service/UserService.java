@@ -26,6 +26,10 @@ public class UserService {
     public User getUser(int id){
         return  userDao.getOne(id);
     }
+    public void deleteUser(int id){
+         userDao.deleteById(id);
+    }
+
     public User getUser(){
         User user=new User();
         user.setUserName("小明service");

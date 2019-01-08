@@ -2,7 +2,11 @@ package com.alan.springboot.restcontroller;
 
 import com.alan.springboot.domain.User;
 import com.alan.springboot.service.UserService;
+import com.alan.springboot.util.WorkProperties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,12 +16,19 @@ import java.util.List;
 @RestController
 public class HelloWorldController {
 
+    private  static final Logger LOGGER= LoggerFactory.getLogger(HelloWorldController.class);
+
     @Autowired
     private UserService userService;
+    @Autowired
+    private  WorkProperties workProperties;
+    @Autowired
+    private Environment env;
 
     @GetMapping(value = "/hello" )
     public String index() {
-        return "hello world中国";
+        LOGGER.info(workProperties.getTitle());
+        return "hello world中国"+ workProperties.getTitle()+env.getProperty("com.alan.age");
     }
 
     @RequestMapping(value="/getUser",produces = "application/json;charset=UTF-8")

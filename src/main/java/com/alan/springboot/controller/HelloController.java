@@ -23,7 +23,7 @@ public class HelloController {
     @GetMapping("userList")
     public String list(Model model) {
         model.addAttribute("userList", userService.getAllList());
-        model.addAttribute("title", "用户管理a");
+        model.addAttribute("title", "用户管理");
         return "list";
     }
     /**
@@ -58,6 +58,31 @@ public class HelloController {
         model.addAttribute("user", user);
         model.addAttribute("title", "查看用户");
         return "view";
+    }
+    /**
+     * 删除用户
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "delete/{id}")
+    public ModelAndView delete(@PathVariable("id") int id) {
+        ModelAndView model =new ModelAndView();
+        userService.deleteUser(id);
+        model.addObject("userList", userService.getAllList());
+        model.addObject("title", "删除用户");
+        model.setViewName("list");
+        return model;
+    }
+
+    /**
+     * 修改用户
+     */
+    @GetMapping(value = "edit/{id}")
+    public String modifyForm(@PathVariable("id") int id, Model model) {
+        User user = userService.getUser(id);
+        model.addAttribute("user", user);
+        model.addAttribute("title", "修改用户");
+        return "form";
     }
 
 
