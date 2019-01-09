@@ -5,7 +5,7 @@ package com.alan.springboot.util;
  * @author: Alan
  * @create: 2019-01-04 10:33
  **/
-public class StringUtil {
+public final class StringUtil {
     /**
      * @Descriptionnull转字符串
      */

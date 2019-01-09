@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @create: 2019-01-08 10:53
  **/
 @Component
-public class WorkProperties {
+public final class WorkProperties {
 
     @Value("${com.alan.title}")
     private  String title;
