@@ -1,9 +1,11 @@
 package com.alan.springboot.domain;
 
+import com.alan.springboot.base.BaseEntity;
 import javax.persistence.*;
+
 @Entity
 @Table(name = "sys_users")
-public class User extends BaseEntity{
+public class User extends BaseEntity {
 
     @Column(name = "CODE")
     private  String code;

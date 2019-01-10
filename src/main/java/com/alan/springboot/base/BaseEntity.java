@@ -1,4 +1,4 @@
-package com.alan.springboot.domain;
+package com.alan.springboot.base;
 
 import javax.persistence.*;
 import java.io.Serializable;
