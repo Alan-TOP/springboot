@@ -55,4 +55,9 @@ public class HelloWorldController extends BaseController {
     public List<User> getUsers() {
         return userService.getAllList();
     }
+
+    @RequestMapping("/getUserByName")
+    public List<User> getUserByName() {
+        return userService.getUserByName("a");
+    }
 }

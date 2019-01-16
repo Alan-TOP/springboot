@@ -6,6 +6,7 @@ import com.alan.springboot.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -39,6 +40,10 @@ public class UserService {
          return userDao.findAll();
     }
 
+    @Transactional
+    public List<User> getUserByName(String name){
+        return userDao.getUserByName(name);
+    }
     /*Page<User> userPage =
             userDao.queryUsers(2, PageRequest.of(0, 10, Sort.by(Sort.Order.desc("gmtCreate"))));*/
 }
