@@ -40,10 +40,14 @@ public class UserService {
          return userDao.findAll();
     }
 
-    @Transactional
     public List<User> getUserByName(String name){
-        return userDao.getUserByName(name);
+        return userDao.getUserLikeName(name);
     }
+    public User getOneBySql(int id){
+        return userDao.getOneBySql(id);
+    }
+
+
     /*Page<User> userPage =
             userDao.queryUsers(2, PageRequest.of(0, 10, Sort.by(Sort.Order.desc("gmtCreate"))));*/
 }

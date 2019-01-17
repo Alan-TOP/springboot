@@ -60,4 +60,8 @@ public class HelloWorldController extends BaseController {
     public List<User> getUserByName() {
         return userService.getUserByName("a");
     }
+    @RequestMapping("/getUserById")
+    public User getOneBySql() {
+        return userService.getOneBySql(118);
+    }
 }
