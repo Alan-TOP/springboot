@@ -1,6 +1,6 @@
 package com.alan.springboot.base;
 
-public interface BaseService<D extends BaseDao<T>,T> {
+public interface BaseService<T> {
     int deleteByPrimaryKey(String id);
 
     int insert(T record);

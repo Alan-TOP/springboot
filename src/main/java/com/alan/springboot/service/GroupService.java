@@ -9,7 +9,7 @@ import com.alan.springboot.domain.Group;
  * @author: Alan
  * @create: 2019-01-22 10:26
  **/
-public interface GroupService extends BaseService<GroupDao,Group> {
+public interface GroupService extends BaseService<Group> {
 
     Group save(Group group);
 }
