@@ -2,7 +2,6 @@ package com.alan.springboot.base.impl;
 
 import com.alan.springboot.base.BaseDao;
 import com.alan.springboot.base.BaseService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 @Service("BaseService")
 public class BaseServiceImpl<D extends BaseDao<T>,T> implements BaseService<T> {
 
-    @Autowired
     protected D dao;
 
     @Override
@@ -33,7 +31,7 @@ public class BaseServiceImpl<D extends BaseDao<T>,T> implements BaseService<T> {
 
     @Override
     public T selectByPrimaryKey(String id) {
-        return (T) dao.selectByPrimaryKey(id);
+        return dao.selectByPrimaryKey(id);
     }
 
     @Override
