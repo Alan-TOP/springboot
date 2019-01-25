@@ -30,6 +30,7 @@ spring:
 mybatis:
   typeAliasesPackage: com.alan.springboot.domain
   mapperLocations: classpath:mapping/*.xml
+
   #thymelea模板配置
   thymeleaf:
     prefix: classpath:/templates/
@@ -49,4 +50,5 @@ mybatis:
     include: redis
 logging:
   file: springboot.log
-
+  level:
+    com.alan.springboot.dao: debug

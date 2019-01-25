@@ -61,6 +61,11 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>1.1.1</version>
         </dependency>
+        <!-- spring-boot整合jdbc(JdbcTemplate) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
 
         <!-- thymeleaf配置 -->
         <dependency>
