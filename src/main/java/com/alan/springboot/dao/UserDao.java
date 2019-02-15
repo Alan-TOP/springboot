@@ -33,5 +33,4 @@ public interface UserDao extends JpaRepository<User,Integer>{
     @Modifying
     @Query(value = "update User u set u.name = ?1 where u.id = ?2")
     int update(String name, Integer id);*/
-
 }

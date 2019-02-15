@@ -46,7 +46,6 @@ public class UserService {
         return userDao.getOneBySql(id);
     }
 
-
     /*Page<User> userPage =
             userDao.queryUsers(2, PageRequest.of(0, 10, Sort.by(Sort.Order.desc("gmtCreate"))));*/
 }
